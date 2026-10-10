@@ -1,0 +1,213 @@
+/**
+ * Print Stylesheet - Perpustakaan Digital SMKN 2 Sumbawa Besar
+ * Dikhususkan untuk cetak Kartu Anggota, Label Buku, Struk Peminjaman, & Laporan Resmi
+ */
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar, .topbar, .btn, .no-print, .toast-container-custom, footer {
+    display: none !important;
+  }
+
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .page-container {
+    padding: 0 !important;
+  }
+
+  /* Kop Surat Resmi Laporan */
+  .kop-surat {
+    display: flex !important;
+    align-items: center;
+    border-bottom: 3px double #000;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+  .kop-logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    margin-right: 20px;
+  }
+
+  .kop-text {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .kop-instansi {
+    font-size: 13pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .kop-sekolah {
+    font-size: 16pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 2px 0;
+    color: #000;
+  }
+
+  .kop-alamat {
+    font-size: 9pt;
+    margin: 0;
+  }
+
+  /* Kartu Anggota Standar ID Card (85.6mm x 54mm) */
+  .member-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 85.6mm);
+    gap: 15mm;
+    page-break-inside: avoid;
+  }
+
+  .member-card {
+    width: 85.6mm;
+    height: 54mm;
+    border: 1px solid #1e3a8a;
+    border-radius: 8px;
+    padding: 3mm 4mm;
+    box-sizing: border-box;
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+
+  .member-card-header {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    border-bottom: 1.5px solid #1e3a8a;
+    padding-bottom: 1.5mm;
+    margin-bottom: 2mm;
+  }
+
+  .member-card-header img {
+    width: 8mm;
+    height: 8mm;
+  }
+
+  .member-card-header-text h6 {
+    font-size: 7pt;
+    font-weight: 800;
+    margin: 0;
+    color: #1e3a8a;
+    text-transform: uppercase;
+  }
+
+  .member-card-header-text small {
+    font-size: 5.5pt;
+    color: #475569;
+    display: block;
+  }
+
+  .member-card-body {
+    display: flex;
+    gap: 3mm;
+  }
+
+  .member-card-photo {
+    width: 18mm;
+    height: 24mm;
+    object-fit: cover;
+    border: 1px solid #94a3b8;
+    border-radius: 3px;
+  }
+
+  .member-card-info {
+    flex-grow: 1;
+    font-size: 6.5pt;
+    line-height: 1.3;
+  }
+
+  .member-card-info table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .member-card-info td {
+    padding: 0.5mm 0;
+    vertical-align: top;
+  }
+
+  .member-card-qr {
+    position: absolute;
+    bottom: 2mm;
+    right: 3mm;
+    text-align: center;
+  }
+
+  /* Label Stiker Punggung Buku */
+  .book-label-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 45mm);
+    gap: 5mm;
+    page-break-inside: avoid;
+  }
+
+  .book-label-item {
+    width: 45mm;
+    height: 38mm;
+    border: 1px dashed #334155;
+    border-radius: 4px;
+    padding: 2mm;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 7pt;
+    line-height: 1.2;
+    page-break-inside: avoid;
+  }
+
+  .book-label-title {
+    font-size: 6pt;
+    font-weight: 700;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1mm;
+    margin-bottom: 1mm;
+    text-transform: uppercase;
+  }
+
+  /* Tanda Tangan Laporan */
+  .signature-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  .signature-box {
+    text-align: center;
+    width: 250px;
+  }
+
+  .signature-space {
+    height: 70px;
+  }
+
+  .signature-name {
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0;
+  }
+
+  .signature-nip {
+    font-size: 10pt;
+    margin: 0;
+  }
+}
